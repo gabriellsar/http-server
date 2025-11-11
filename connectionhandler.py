@@ -14,13 +14,19 @@ class ConnectionHandler():
             req = HttpRequest(data)
             resp = HttpResponse()
 
+            http_resp = ''
+
             if req.method == 'GET':
                 fmapp = ConfigMapper(req.path)
-                if fmapp.status == 200: # HTTP/1.1 200 OK
-                    resp.Success(fmapp.fis_path)
-                else: # HTTP/1.1 404 Not Found
-                    resp.notFound()
+
+                if fmapp.status == 200:
+                    http_resp = resp.success(fmapp.fis_path)
+                else:
+                    http_resp = resp.notFound()
             else:
-                resp.notImplemented()
+                http_resp = resp.notImplemented()
+
+            self.client_socket.send(http_resp.encode('utf-8'))
+
         except socket.error as e:
             print(f"Socket error: {e}")
