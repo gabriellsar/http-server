@@ -26,7 +26,7 @@ class ConnectionHandler():
             else:
                 http_resp = resp.notImplemented()
 
-            self.client_socket.send(http_resp.encode('utf-8'))
+            self.client_socket.send(http_resp)
 
         except socket.error as e:
             print(f"Socket error: {e}")
