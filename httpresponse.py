@@ -1,6 +1,6 @@
 import os 
 
-class HtttpResponse():
+class HttpResponse():
     def __init__(self):
         pass
 
