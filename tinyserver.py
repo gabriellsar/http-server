@@ -6,10 +6,8 @@ class TinyServer():
         self.host = "127.0.0.1" # localhost
         self.port = port
 
-        self.socket
-
     def createSocket(self):
-        self.socket = socket.socket(socket.AF_NET, socket.SOCKET_STREAM)
+        self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def bindSocket(self):
         self.socket.bind((self.host, self.port))

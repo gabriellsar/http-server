@@ -26,7 +26,7 @@ class HttpResponse():
         blank_line = '\r\n'
 
         header = header_type + header_len + blank_line
-        resposta_final_em_bytes = status.encode('utf-8') + headers.encode('utf-8') + body
+        resposta_final_em_bytes = status.encode('utf-8') + header.encode('utf-8') + body
 
         return resposta_final_em_bytes
 

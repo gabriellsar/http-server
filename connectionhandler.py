@@ -1,5 +1,6 @@
-from handlerequest import HttpRequest
-from handleresponse import HttpResponse
+import socket
+from httprequest import HttpRequest
+from httpresponse import HttpResponse
 from configmapper import ConfigMapper
 
 class ConnectionHandler():

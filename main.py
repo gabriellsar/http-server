@@ -1,3 +1,4 @@
+import socket
 from tinyserver import TinyServer
 
 def main():
@@ -5,7 +6,7 @@ def main():
 
     ts = TinyServer(PORTA)
 
-    ts.creatSocket()
+    ts.createSocket()
     ts.bindSocket()
     ts.listen(5)
     
