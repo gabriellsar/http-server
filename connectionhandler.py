@@ -11,7 +11,6 @@ class ConnectionHandler():
     def handleRequest(self):
         try:
             data = self.client_socket.recv(1024).decode('utf-8')
-
             req = HttpRequest(data)
             resp = HttpResponse()
 

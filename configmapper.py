@@ -12,15 +12,19 @@ class ConfigMapper:
             self.status = 404
 
     def _getFile(self, path):
+        print(path)
+
         pairs = self.file_config.strip().split('\n')
         dfile_config = dict(item.split(' -> ') for item in pairs)
 
-        self.fis_path = self._multipleReplace(path,dfile_config)
+        sorted_keys = sorted(dfile_config.keys(), key=len, reverse=True)
 
-    def _multipleReplace(self, path, dfile_config):
-        for old, new in dfile_config.items():
-            path = path.replace(old,new)
-        return path
+        self.fis_path = path
+        for key in sorted_keys:
+            if path.startswith(key):
+                self.fis_path = path.replace(key, dfile_config[key], 1)
+                break
 
+        print(f"fis -> {self.fis_path}")
 
 
